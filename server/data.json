@@ -1,0 +1,39 @@
+{
+  "survey": {
+    "questions": [
+      {
+        "id": "1",
+        "type": "multiple_choice",
+        "question": "What is your pet's species?",
+        "choices": ["Dog", "Cat", "Bird", "Other"]
+      },
+      {
+        "id": "2",
+        "type": "multiple_choice_multiple_answers",
+        "question": "Which of the following vaccinations has your pet received?",
+        "choices": [
+          "Rabies",
+          "Distemper",
+          "Parvovirus",
+          "Leptospirosis",
+          "None"
+        ]
+      },
+      {
+        "id": "3",
+        "type": "scaled",
+        "question": "Rate the overall satisfaction with the veterinary consultation:",
+        "scale": {
+          "min": 1,
+          "max": 5,
+          "step": 1
+        }
+      },
+      {
+        "id": "4",
+        "type": "free_text",
+        "question": "Please provide any additional comments or feedback:"
+      }
+    ]
+  }
+}
