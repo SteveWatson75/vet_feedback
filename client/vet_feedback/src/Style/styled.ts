@@ -1,5 +1,8 @@
 import styled from 'styled-components/native'
 import Constants from 'expo-constants'
+import { Dimensions } from 'react-native'
+
+const { height, width } = Dimensions.get('window')
 
 export const Container = styled.SafeAreaView`
   background-color: #fff9f4;
@@ -29,8 +32,9 @@ export const TitleText = styled.Text`
 `
 
 export const QuestionCard = styled.View`
-  width: 90%;
-  margin: 16px;
+  width: ${width - 40}px;
+  margin-horizontal: 16px;
+  margin-vertical: 8px;
   padding: 16px;
   border-width: 1px;
   border-radius: 10px;
