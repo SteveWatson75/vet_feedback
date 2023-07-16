@@ -1,18 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
+import { getSurveyQuestions } from 'src/api'
 import FreeTextInput from 'src/components/FreeTextInput'
 import MultiChoiceCheckBox from 'src/components/MultiChoiceCheckBox'
 import MultiChoiceRadio from 'src/components/MultiChoiceRadio'
 import ScaledInput from 'src/components/ScaledInput'
+import { SurveyQuestions } from 'src/types/surveyQuestions'
 import { Header, TitleText } from '../../style/styled'
 
 const SurveyScreen: React.FC = () => {
+  const [surveyQuestions, setSurveyQuestions] = useState<SurveyQuestions>()
   const [selectedOptionsRadio, setSelectedOptionsRadio] = useState<string[]>([])
   const [selectedOptionCheckBox, setSelectedOptionCheckBox] = useState<string>('')
   const [value, setValue] = useState<number>(0)
   const [freeText, setFreeText] = useState<string>('')
 
-  const question = 'What you want?'
+  useEffect(() => {
+    getSurveyQuestions().then((res) => setSurveyQuestions(res))
+  }, [])
+
+  if (!surveyQuestions) {
+    return null
+  }
 
   return (
     <>
@@ -29,19 +38,27 @@ const SurveyScreen: React.FC = () => {
           keyboardDismissMode="on-drag"
           showsVerticalScrollIndicator={false}
         >
-          <MultiChoiceRadio
-            question={question}
-            choices={['fun', 'happiness', 'love']}
-            setSelectedOptionsRadio={setSelectedOptionsRadio}
-          />
           <MultiChoiceCheckBox
-            question={question}
-            choices={['fun', 'happiness', 'love']}
+            question={surveyQuestions.survey.questions[0].question}
+            choices={surveyQuestions.survey.questions[0].choices!}
             selectedOption={selectedOptionCheckBox}
             setSelectedOption={setSelectedOptionCheckBox}
           />
-          <ScaledInput question={question} value={value} setValue={setValue} />
-          <FreeTextInput question={question} freeText={freeText} setFreeText={setFreeText} />
+          <MultiChoiceRadio
+            question={surveyQuestions.survey.questions[1].question}
+            choices={surveyQuestions.survey.questions[1].choices!}
+            setSelectedOptionsRadio={setSelectedOptionsRadio}
+          />
+          <ScaledInput
+            question={surveyQuestions.survey.questions[2].question}
+            value={value}
+            setValue={setValue}
+          />
+          <FreeTextInput
+            question={surveyQuestions.survey.questions[3].question}
+            freeText={freeText}
+            setFreeText={setFreeText}
+          />
         </ScrollView>
       </KeyboardAvoidingView>
     </>
