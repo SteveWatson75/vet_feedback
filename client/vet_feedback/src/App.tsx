@@ -1,5 +1,5 @@
-import SurveyScreen from './Screens/SurveyScreen'
-import { Container } from './Style/styled'
+import SurveyScreen from './screens/SurveyScreen'
+import { Container } from './style/styled'
 
 const App: React.FC = () => {
   return (
