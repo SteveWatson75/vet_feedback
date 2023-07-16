@@ -27,3 +27,13 @@ export const TitleText = styled.Text`
   font-size: 18px;
   color: #000;
 `
+
+export const QuestionCard = styled.View`
+  width: 90%;
+  margin: 16px;
+  padding: 16px;
+  border-width: 1px;
+  border-radius: 10px;
+  background-color: #fff;
+  border-color: #fff;
+`

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Text } from 'react-native'
+import { QuestionCard } from 'src/style/styled'
 import RadioButton from '../RadioButton'
-import { QuestionCard } from './styled'
 
 type Props = {
   question: string

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text } from 'react-native'
+import { QuestionCard } from 'src/style/styled'
 import CheckBox from '../CheckBox/CheckBox'
-import { QuestionCard } from './styled'
 
 type Props = {
   question: string
