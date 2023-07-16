@@ -5,18 +5,15 @@ import { CheckBoxContainer, CheckBoxLabelContainer } from './styled'
 
 type Props = {
   children: string
-  selectedOption: string
-  setSelectedOption: (selectedOption: string) => void
+  isSelected: boolean
+  onSelect: () => void
 }
 
 const CheckBox: React.FC<Props> = (props: Props) => {
-  const { children, selectedOption, setSelectedOption } = props
+  const { children, isSelected, onSelect } = props
   return (
     <CheckBoxContainer>
-      <Checkbox
-        value={selectedOption === children}
-        onValueChange={selectedOption === children ? undefined : () => setSelectedOption(children)}
-      />
+      <Checkbox value={isSelected} onValueChange={onSelect} />
       <CheckBoxLabelContainer>
         <Text>{children}</Text>
       </CheckBoxLabelContainer>

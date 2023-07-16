@@ -10,8 +10,8 @@ import { Header, TitleText } from '../../style/styled'
 
 const SurveyScreen: React.FC = () => {
   const [surveyQuestions, setSurveyQuestions] = useState<SurveyQuestions>()
-  const [selectedOptionsRadio, setSelectedOptionsRadio] = useState<string[]>([])
-  const [selectedOptionCheckBox, setSelectedOptionCheckBox] = useState<string>('')
+  const [selectedOptionsRadio, setSelectedOptionsRadio] = useState<string>('')
+  const [selectedOptionCheckBox, setSelectedOptionCheckBox] = useState<string[]>([])
   const [value, setValue] = useState<number>(0)
   const [freeText, setFreeText] = useState<string>('')
 
@@ -38,16 +38,16 @@ const SurveyScreen: React.FC = () => {
           keyboardDismissMode="on-drag"
           showsVerticalScrollIndicator={false}
         >
-          <MultiChoiceCheckBox
+          <MultiChoiceRadio
             question={surveyQuestions.survey.questions[0].question}
             choices={surveyQuestions.survey.questions[0].choices!}
-            selectedOption={selectedOptionCheckBox}
-            setSelectedOption={setSelectedOptionCheckBox}
+            selectedOption={selectedOptionsRadio}
+            setSelectedOption={setSelectedOptionsRadio}
           />
-          <MultiChoiceRadio
+          <MultiChoiceCheckBox
             question={surveyQuestions.survey.questions[1].question}
             choices={surveyQuestions.survey.questions[1].choices!}
-            setSelectedOptionsRadio={setSelectedOptionsRadio}
+            setSelectedOptionsCheck={setSelectedOptionCheckBox}
           />
           <ScaledInput
             question={surveyQuestions.survey.questions[2].question}
