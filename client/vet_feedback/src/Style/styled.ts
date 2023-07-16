@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import Constants from 'expo-constants'
 
 export const Container = styled.SafeAreaView`
-  background-color: #fff;
+  background-color: #fff9f4;
   flex: 1;
   align-items: center;
   padding: 20px;
@@ -13,7 +13,6 @@ export const Header = styled.View`
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
-  background-color: pink;
 `
 export const ThemeButton = styled.Pressable`
   padding: 10px;
